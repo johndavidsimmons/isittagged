@@ -29,11 +29,14 @@ function setUp() {
     // Then update the popup to show that number
     if (request.txt === "num of tagged nodes") {
       let { number } = request;
-      if (number) {
-        document.getElementById("number").innerHTML = `${number}`;
-      } else {
-        document.getElementById("number").innerHTML = "";
-      }
+      chrome.storage.local.set({ number: number }, function() {
+        if (number) {
+          // store number & display it
+          document.getElementById("number").innerHTML = `${number}`;
+        } else {
+          document.getElementById("number").innerHTML = "";
+        }
+      });
     }
 
     if (request.txt === "change button to hide tags") {
@@ -82,6 +85,24 @@ function setUp() {
         selectorInput.value = savedSelector;
       } else if (!saveSelector) {
         btn.className = "disabled";
+      }
+    });
+
+    // get the number from storage to show it still if the popup closes
+    chrome.storage.local.get(["number"], function(result) {
+      let { number } = result;
+      if (number) {
+        document.getElementById("number").innerHTML = number;
+      }
+    });
+
+    // reset UI when popup opens
+    chrome.storage.local.get(["showTags"], function(result) {
+      let { showTags } = result;
+
+      if (showTags) {
+        // document.getElementById("number").innerHTML = "";
+        btn.innerHTML = "Hide Tags";
       }
     });
   });
