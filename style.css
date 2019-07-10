@@ -1,0 +1,53 @@
+html,
+body {
+  width: 300px;
+  height: 150px;
+}
+
+.container {
+  margin: 0 auto;
+  width: 95%;
+}
+
+button {
+  -webkit-appearance: none;
+  background-color: #13a48e;
+  border-radius: 4px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1.5em;
+  font-weight: 500;
+  margin: 0 auto;
+  padding: 16px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: normal;
+  width: 270px;
+}
+
+input {
+  box-shadow: none;
+  border: 2px solid #bebebe;
+  border-radius: 4px;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.3;
+  outline: 0;
+  padding: 6px;
+  width: 252px;
+}
+
+.disabled {
+  background-color: #bebebe;
+  cursor: default;
+}
+
+.badge {
+  position: absolute;
+  color: #13a48e;
+  font-size: 1.2em;
+  font-weight: bold;
+  top: 54px;
+  right: 25px;
+}
