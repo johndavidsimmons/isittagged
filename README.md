@@ -1,5 +1,6 @@
-#Is It Tagged?
-##A Chrome Extension
+# Is It Tagged?
+
+## A Chrome Extension
 
 ---
 
@@ -7,7 +8,7 @@
 
 **Is It Tagged** is a Chrome extension for highlighting elements on a webpage via a CSS selector. It was developed to allow Quicken Loans' team members to inspect their pages for click attribute tags without having to open the developer tools.
 
-##Installation & Usage
+## Installation & Usage
 
 - Download from the Chrome Extensions Store or load unpacked in extension development mode
 - Navigate to any quickenloans.com or rocketmortgage.com domain (subdomains included)
