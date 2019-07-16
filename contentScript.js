@@ -86,10 +86,12 @@ chrome.storage.onChanged.addListener(function(changes, namespace) {
             // Add as a string instead of individually
             let styles =
               "color:red; position: absolute; background-color: lemonchiffon; visibility: visible; z-index: 9999999";
-            el.insertAdjacentHTML(
-              "beforeend",
-              `<div class="tagflag" style="${styles}">${tag}</div>`
-            );
+            if (tag) {
+              el.insertAdjacentHTML(
+                "beforeend",
+                `<div class="tagflag" style="${styles}">${tag}</div>`
+              );
+            }
           }
         }
         // change button text to 'Hide Tags'
