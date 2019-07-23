@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Is It Tagged? [ALPHA]",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Highlight elements explicitly tagged for collection in Adobe Analytics",
   "author": "John Simmons",
   "icons": {
