@@ -46,6 +46,14 @@ const applyShadow = el => {
   el.style["-moz-box-shadow"] = shadowCSS;
   el.style["box-shadow"] = shadowCSS;
 };
+
+const isHidden = element => {
+  return (
+    window.getComputedStyle(element, null).getPropertyValue("visibility") ===
+    "hidden"
+  );
+};
+
 /***********************/
 
 // Handler for when the current selector changes in storage
@@ -67,6 +75,12 @@ chrome.storage.onChanged.addListener(function(changes, namespace) {
       let showTags = storageChange.newValue;
       let taggedElements = document.querySelectorAll(`${currentSelector}`);
       let numOfElements = taggedElements.length;
+      let hiddenElements = [...taggedElements].filter(
+        el => isHidden(el) == true
+      );
+      let numOfHiddenElements = hiddenElements.length;
+      let taggedParents = [];
+
       // Send number back to popup
       // popup will show number when it receives this
       let message = {
@@ -79,11 +93,17 @@ chrome.storage.onChanged.addListener(function(changes, namespace) {
         // highlight new elements
         if (numOfElements > 0) {
           for (el of taggedElements) {
+            // if element visible on page
+
+            if (isHidden(el)) {
+              el.style.visibility = "visible";
+            }
+
             applyBorder(el);
 
-            let tag = getTag(currentSelector);
             // Styling for the tag
             // Add as a string instead of individually
+            let tag = getTag(currentSelector);
             let styles =
               "color:red; position: absolute; background-color: lemonchiffon; visibility: visible; z-index: 9999999";
             if (tag) {

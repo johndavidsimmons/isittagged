@@ -10,7 +10,7 @@
     "48": "images/layers48x48.png",
     "128": "images/layers128x128.png"
   },
-  "page_action": {
+  "browser_action": {
     "default_icon": {
       "16": "images/layers16x16.png",
       "32": "images/layers32x32.png",
@@ -19,24 +19,14 @@
     "default_title": "Is It Tagged?",
     "default_popup": "popup.html"
   },
-  "permissions": [
-    "activeTab",
-    "declarativeContent",
-    "storage",
-    "tabs",
-    "https://*.quickenloans.com/*",
-    "https://*.rocketmortgage.com/*"
-  ],
+  "permissions": ["activeTab", "storage"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
   },
   "content_scripts": [
     {
-      "matches": [
-        "https://*.rocketmortgage.com/*",
-        "https://*.quickenloans.com/*"
-      ],
+      "matches": ["<all_urls>"],
       "js": ["contentScript.js"]
     }
   ]

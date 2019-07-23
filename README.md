@@ -17,6 +17,7 @@
 
 ## To Do
 
-- Add support for QLMS
-- Show Launch/DTM Environment in popup
-- Add Google Analytics to popup
+- [x] Remove URL limitations so extension can be used anywhere
+- [x] Unhide hidden items if highlighted
+- [ ] Reset UI when user switches between windows/tabs
+- [ ] Add Google Analytics to popup
